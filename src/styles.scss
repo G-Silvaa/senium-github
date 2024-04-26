@@ -1,0 +1,58 @@
+@import '~swiper/swiper-bundle.css';
+
+:root {
+    --primary: #25294C;
+    --secondary: #202342;
+    --textPrimary: #333333;
+    --textSecondary: #e9ecef;
+    --background: #e9ecef;
+    --brand: #27c498;
+    --positive: #0d6efd;
+    --sucess: #198754;
+    --warning: #ffc107;
+    --danger: #dc3545;
+}
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+   box-sizing: border-box;
+   
+}
+
+a{
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.swiper-wrapper{
+
+    display: flex !important;
+    justify-content: space-between !important;
+
+    }
+
+.swiper-container{
+    width: 100vw !important;
+}
+
+.mat-mdc-menu-content{
+    background: #005E92;
+    width: 127px;
+}
+
+
+
+
+
+

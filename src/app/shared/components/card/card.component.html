@@ -1,0 +1,154 @@
+<div class="continer">
+  <div class="button-group">
+    <a
+      class="button-card"
+      [class.active]="!isRegistering && !isConfirmingPassword"
+      (click)="isRegistering = false; isConfirmingPassword = false"
+      >Login</a
+    >
+    <a
+      class="button-card"
+      [class.active]="isRegistering && !isConfirmingPassword"
+      (click)="isRegistering = true; isConfirmingPassword = false"
+      >Registrar</a
+    >
+  </div>
+  <div
+    class="container-register"
+    [class.small]="cardSize === 'small'"
+    [class.medium]="cardSize === 'medium'"
+    [class.large]="cardSize === 'large'"
+  >
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="text">
+        <h2>{{ title }}</h2>
+        <span>{{ subtitle }}</span>
+      </div>
+
+      <div class="inputs">
+        <!-- Estágio de Login -->
+        <div *ngIf="!isRegistering && !isConfirmingPassword">
+          <label for="">Nome </label>
+          <input
+            formControlName="name"
+            [placeholder]="namePlaceholder"
+            type="text"
+          />
+          <div
+            class="validation"
+            *ngIf="form.controls.name.invalid && form.controls.name.touched"
+          >
+            Nome é obrigatório
+          </div>
+
+          <label for="">E-mail </label>
+          <input
+            formControlName="email"
+            [placeholder]="emailPlaceholder"
+            type="text"
+          />
+          <div
+            class="validation"
+            *ngIf="form.controls.email?.errors?.['required'] && form.controls.email?.touched"
+          >
+            E-mail é obrigatório
+          </div>
+          <div
+            class="validation"
+            *ngIf="form.controls.email?.errors?.['email'] && form.controls.email?.touched"
+          >
+            E-mail inválido
+          </div>
+          <span class="link"
+            >Ao continuar o cadastro você aceita nossa
+            <a href="">política de privacidade.</a></span
+          >
+          <app-button
+            [buttonText]="'entrar'"
+            (click)="submit()"
+            variante="button-register"
+          />
+        </div>
+
+        <!-- Estágio de Registro -->
+        <div *ngIf="isRegistering && !isConfirmingPassword">
+          <label for="">Nome </label>
+          <input
+            formControlName="name"
+            [placeholder]="namePlaceholder"
+            type="text"
+          />
+          <div
+            class="validation"
+            *ngIf="form.controls.name.invalid && form.controls.name.touched"
+          >
+            Nome é obrigatório
+          </div>
+
+          <label for="">E-mail </label>
+          <input
+            formControlName="email"
+            [placeholder]="emailPlaceholder"
+            type="text"
+          />
+          <div
+            class="validation"
+            *ngIf="form.controls.email?.errors?.['required'] && form.controls.email?.touched"
+          >
+            E-mail é obrigatório
+          </div>
+          <div
+            class="validation"
+            *ngIf="form.controls.email?.errors?.['email'] && form.controls.email?.touched"
+          >
+            E-mail inválido
+          </div>
+
+          <label for="">Data de Nascimento </label>
+          <input formControlName="birthdate" type="date" [min]="minDate" />
+          <div
+            class="validation"
+            *ngIf="
+              form.controls.birthdate?.invalid &&
+              form.controls.birthdate?.touched
+            "
+          >
+            <div *ngIf="form.controls.birthdate?.errors?.['required']">
+              Idade é obrigatória.
+            </div>
+            <div *ngIf="form.controls.birthdate?.errors?.['ageInvalid']">
+              A plataforma exige uma idade maior que 44 anos
+            </div>
+          </div>
+          <span class="link"
+            >Ao continuar o cadastro você aceita nossa
+            <a href="">política de privacidade.</a></span
+          >
+          <app-button
+            [buttonText]="'prosseguir'"
+            (click)="isConfirmingPassword = true"
+            variante="button-register"
+          />
+        </div>
+
+        <div *ngIf="isConfirmingPassword">
+          <label for="">Senha </label>
+          <input formControlName="password" type="password" />
+
+          <label for="">Confirmação de Senha </label>
+          <input formControlName="passwordConfirmation" type="password" />
+
+          <span class="link"
+            >Ao continuar o cadastro você aceita nossa
+            <a href="">política de privacidade.</a></span
+          >
+          <app-button
+            [buttonText]="'cadastrar'"
+            (click)="submit()"
+            variante="button-register"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

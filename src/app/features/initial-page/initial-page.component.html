@@ -1,0 +1,71 @@
+<app-navbar />
+<div class="container">
+  <div class="container-text">
+    <h1>
+      Conectando profissionais <span class="color-text-green">50+</span> com
+      empresas que valorizam a <span class="color-text-green">experiência</span>
+    </h1>
+    <a href="https://docs.google.com/forms/d/1lu6Kc3XfHW6REO8YWQ0cGIiCAiScd1FxnDqiXRTMyqk/viewform?ts=66281600&edit_requested=true" target="_blank"><app-button variante="button-forms" [buttonText]="'QUERO ME CANDIDATAR'" /></a>
+  </div>
+
+  <img class="menu-photo" src="../../../assets/casal-senior-no-parque-p-1600.svg" alt="" />
+</div>
+
+<div class="container-two">
+  <div class="content">
+    <img class="Photograph" src="../../../assets/foto.svg" alt="" />
+    <div class="text-card">
+      <hr class="green-line" />
+      <h1>Mercado Para 50+</h1>
+      <span>
+        <div class="gap1">
+          Segundo um estudo realizado pela Maturi e pela EY Brasil, apenas três em cada dez indivíduos com mais de 60 anos permanecem ativos no mercado de trabalho. Essa estatística revela uma realidade preocupante: a participação desses grupos não ultrapassa 10% em muitas empresas. Essa baixa representatividade reflete um cenário em que as oportunidades para profissionais mais experientes são frequentemente ignoradas, evidenciando a necessidade urgente de mudanças e de uma abordagem mais inclusiva por parte das organizações.
+        </div>
+
+      </span>
+    </div>
+  </div>
+
+  <div class="content-card">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div *ngFor="let card of cards" class="swiper-slide card">
+          <img [src]="card.image" alt="" />
+          <div class="title">
+            <h3>{{ card.title }}</h3>
+            <hr class="card-color" />
+          </div>
+          <span>{{ card.content }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-two">
+    <div class="text-card">
+      <hr class="green-line" />
+      <h1></h1>
+      <span>
+        <div class="gap1">
+          Na Senium LS, valorizamos habilidades maduras como comprometimento e inteligência emocional, essenciais para o sucesso organizacional. Oferecemos processos seletivos e consultoria em diversidade etária, promovendo inclusão e formação de grupos multigeracionais. Estamos redesenhando o cenário profissional para pessoas 50+
+        </div>
+
+      </span>
+    </div>
+    <img class="Photograph" src="../../../assets/foto.svg" alt="" />
+  </div>
+</div>
+<div class="container-four">
+  <div class="picture">
+    <img class="logo-end" src="../../../assets/Logo.svg" alt="" />
+    <div class="social">
+      <a *ngFor="let item of socialMediaIcons" [href]="item.link" target="_blank">
+          <img class="social-media" [src]="item.icon" alt="social" />
+      </a>
+  </div>
+  </div>
+  <hr class="four-line" />
+</div>
+<footer class="teste">
+  <span>Copyright ® 2024 Todos os direitos reservados</span>
+</footer>
